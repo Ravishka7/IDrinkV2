@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Board from './components/Board'
+import Drink from './components/Drink'
 
-function App() {
+
+export default function App() {
+
+  const [isDrink,setIsDrink] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className='bg-slate-800 min-h-screen w-full flex justify-center items-center'>
 
-export default App;
+      <div className='w-full'>
+
+        {isDrink ? (
+          <Drink setIsDrink ={setIsDrink} />
+        ) : (
+          <Board setIsDrink ={setIsDrink} />
+        )}
+
+        
+
+      
+
+    </div>  
+
+    </div>
+  )
+}
