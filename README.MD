@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bf37cfee-7579-48ca-bb38-fde8c0c36d9a/deploy-status)](https://app.netlify.com/sites/poetic-biscuit-1443cb/deploys)
