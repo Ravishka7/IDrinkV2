@@ -11,6 +11,12 @@ export default function Drink({ setIsDrink, resetScore, score }) {
     setAnimate(true);
     audioRef.current.play();
   }, []);
+  
+  const vibratePhhone = () => {
+    if ('vibrate' in navigator){
+      navigator.vibrate([200]);
+    }
+  };
 
   return (
     <div
@@ -28,6 +34,7 @@ export default function Drink({ setIsDrink, resetScore, score }) {
           className='text-4xl text-white'
           onClick={() => {
             setIsDrink(false);
+            vibratePhhone();
             resetScore();
           }}
         />
