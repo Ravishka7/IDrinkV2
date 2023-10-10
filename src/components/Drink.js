@@ -2,13 +2,22 @@ import React, { useEffect, useState } from 'react'
 import {GiBeerStein} from 'react-icons/gi'
 import {FiRotateCcw} from 'react-icons/fi'
 
+import drinkSound from '../assets/drinkSound.wav'
+
 export default function Drink({setIsDrink}) {
 
     const [animate,setAnimate] = useState(false);
+    const audioRef = React.useRef(null);
 
     useEffect(() => {
 
         setAnimate(true);
+
+        audioRef.current.play();
+
+        if ('vibrate' in navigator) {
+            navigator.vibrate([100,200,100]);
+        }
 
     },[])
 
@@ -30,6 +39,10 @@ export default function Drink({setIsDrink}) {
             transform:`scale(${animate ? 5 : 1})`,
         }} />
     </div>
+
+    <audio ref={audioRef}>
+        <source src={drinkSound} type="audio/wav" />
+      </audio>
 
     </div>
 

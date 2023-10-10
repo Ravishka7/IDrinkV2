@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {GiBeerStein} from 'react-icons/gi'
 import generateBoard from '../utils/generateBoard'
 import Option from './Option'
+
+import mugSound from '../assets/mugSound.wav'
 
 const updatedBoardStyle = (value) => {
 
@@ -25,6 +27,8 @@ const updatedBoardStyle = (value) => {
 
 export default function Board({setIsDrink}) {
 
+    const audioRef = useRef(null);
+
     const boardOption = parseInt( window.localStorage.getItem("boardOption")) || 16;
 
     const [board,setBoard] = useState(generateBoard(parseInt(boardOption)));
@@ -40,6 +44,8 @@ export default function Board({setIsDrink}) {
             updatedBoard[index] = -1;
 
             setBoard(updatedBoard);
+
+            audioRef.current.play();
 
         }else{
             
@@ -68,6 +74,10 @@ export default function Board({setIsDrink}) {
     <div>
 
         <Option changeBoard={changeBoard} boardOption={boardOption} />
+
+        <audio ref={audioRef}>
+        <source src={mugSound} type="audio/wav" />
+      </audio>
         
 
     <div className={`grid gap-2 p-5 ${boardStyle}`}>
