@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 const Notification = window.Notification || window.mozNotification || window.webkitNotification;
 
 export default function Welcome({onStart}) {
@@ -8,6 +9,7 @@ export default function Welcome({onStart}) {
         if ( Notification) {
             Notification.requestPermission().then((permission) => {
                 if (permission === 'granted') {
+                    // eslint-disable-next-line
                     const notification = new Notification('Drink Up', {
                         body: 'Find the mug and drink up!',
                     });
@@ -15,7 +17,7 @@ export default function Welcome({onStart}) {
             });
         }
     };
-
+// eslint-disable-next-line
     const [gameStarted, setGameStarted] = useState(false);
 
     const handleStartClick = () => {
