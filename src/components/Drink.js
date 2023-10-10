@@ -20,7 +20,13 @@ export default function Drink({setIsDrink}) {
 
   return (
 
-    <div>
+    <div 
+    style={{
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/images/drink7.jpg'})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }}>
 
     <div className='grid place-content-center p-5'>
         <FiRotateCcw 

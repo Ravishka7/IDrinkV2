@@ -29,8 +29,7 @@ export default function Option( {changeBoard, boardOption} ) {
             const isCurrentOption = boardOption === value;
 
             return (
-                <button className='bg-blue-500 w-full py-5 rounded-md 
-                text-white disabled:bg-gray-900' 
+                <button className='focus:outline-none text-black bg-yellow-400 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-lg px-6 py-3 w-80 mr-2 mb-2 dark:focus:ring-white' 
                 onClick={()=>changeBoard(value)}
                 key={index}
                 disabled={isCurrentOption}

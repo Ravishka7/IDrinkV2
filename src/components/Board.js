@@ -5,6 +5,7 @@ import Option from './Option'
 
 import mugSound from '../assets/mugSound.wav'
 
+
 const updatedBoardStyle = (value) => {
 
     if(value === 16){
@@ -24,6 +25,8 @@ const updatedBoardStyle = (value) => {
     return "grid-cols-4";
 
 }
+
+
 
 export default function Board({setIsDrink}) {
 
@@ -57,13 +60,18 @@ export default function Board({setIsDrink}) {
 
         }
 
+
     };
+
+    
 
     const changeBoard = (value) => {
 
         setBoard(generateBoard(value));
 
         setBoardStyle(updatedBoardStyle(value));
+
+        
 
         
 
