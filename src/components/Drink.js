@@ -14,10 +14,7 @@ export default function Drink({setIsDrink}) {
         setAnimate(true);
 
         audioRef.current.play();
-
-        if ('vibrate' in navigator) {
-            navigator.vibrate([200, 100, 200, 100, 200, 100, 200]);
-        }
+        
 
     },[])
 

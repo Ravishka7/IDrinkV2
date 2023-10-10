@@ -47,6 +47,10 @@ export default function Board({setIsDrink}) {
 
             audioRef.current.play();
 
+            if ('vibrate' in navigator) {
+                navigator.vibrate([200, 100, 200])
+            }
+
         }else{
             
             setIsDrink(true);
