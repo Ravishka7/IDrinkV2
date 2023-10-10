@@ -28,7 +28,7 @@ const updatedBoardStyle = (value) => {
 
 
 
-export default function Board({setIsDrink}) {
+export default function Board({setIsDrink, setScore, score}) {
 
     const audioRef = useRef(null);
 
@@ -50,15 +50,33 @@ export default function Board({setIsDrink}) {
 
             audioRef.current.play();
 
-            if ('vibrate' in navigator) {
-                navigator.vibrate([2000])
-            }
+            
+
+            setScore(score + 1);
+            
 
         }else{
             
             setIsDrink(true);
 
         }
+// eslint-disable-next-line
+        const handleSelect = (index) => {
+            if (board[index] === 0) {
+              // Mug was clicked
+              const updatedBoard = [...board];
+              updatedBoard[index] = -1;
+              setBoard(updatedBoard);
+              audioRef.current.play();
+              if ('vibrate' in navigator) {
+                navigator.vibrate([2000]);
+              }
+              // Increment the score
+              setScore(score + 1);
+            } else {
+              setIsDrink(true);
+            }
+          };
 
 
     };
@@ -70,6 +88,8 @@ export default function Board({setIsDrink}) {
         setBoard(generateBoard(value));
 
         setBoardStyle(updatedBoardStyle(value));
+
+        setScore(0);
 
         
 
@@ -84,6 +104,7 @@ export default function Board({setIsDrink}) {
   return (
 
     <div>
+        <p className='text-white text-4xl mt-4 text-center'>Number of Tries: {score}</p>
 
         <Option changeBoard={changeBoard} boardOption={boardOption} />
 

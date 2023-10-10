@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Option( {changeBoard, boardOption} ) {
+export default function Option( {changeBoard, boardOption, setScore} ) {
 
     const options = [
         {
@@ -18,7 +18,12 @@ export default function Option( {changeBoard, boardOption} ) {
             
             text:"16 Mugs",
         }
-    ]
+    ];
+    // eslint-disable-next-line
+    const handleBoardChange = (value) => {
+        setScore(0);
+        changeBoard(value);
+    }
 
   return (
     

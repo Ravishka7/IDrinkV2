@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 const Notification = window.Notification || window.mozNotification || window.webkitNotification;
 
-export default function Welcome({onStart}) {
+export default function Welcome({onStart, setShowHowToPlay}) {
 
     const showNotification = () => {
         if ( Notification) {
@@ -25,6 +25,11 @@ export default function Welcome({onStart}) {
         onStart();
         showNotification();
     };
+
+    const handleHowToPlayClick = () => {
+        setShowHowToPlay(true);
+    };
+    
 
     return (
         <div className="bg-slate-800 min-h-screen flex flex-col justify-center items-center"
@@ -50,6 +55,7 @@ export default function Welcome({onStart}) {
     
             <button
               className="text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 mr-2 mb-2"
+              onClick={handleHowToPlayClick}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7ZM13 11V18H11V11H13Z"></path>
